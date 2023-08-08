@@ -1,0 +1,29 @@
+{
+  "name": "atiro",
+  "version": "0.0.1",
+  "description": "Useless OI Tools",
+  "main": "index.js",
+  "bin": {
+    "atiro": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sukwants/Atiro.git"
+  },
+  "keywords": [
+    "OI",
+    "cli"
+  ],
+  "author": "Sukwants",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sukwants/Atiro/issues"
+  },
+  "homepage": "https://github.com/Sukwants/Atiro#readme",
+  "dependencies": {
+    "chalk": "^3.0.0"
+  }
+}
