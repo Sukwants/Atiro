@@ -1,3 +1,5 @@
+zh-CN | [en-CN](./README_en-CN.md)
+
 # Atiro
 
 Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判单组本地样例。
