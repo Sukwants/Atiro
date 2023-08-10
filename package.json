@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Sukwants/Atiro#readme",
   "dependencies": {
-    "chalk": "^3.0.0"
+    "chalk": "^3.0.0",
+    "commander": "^11.0.0"
   }
 }
