@@ -6,6 +6,11 @@ const chalk = require('chalk');
 
 function compileCpp() {
   try {
+    if (!fs.existsSync('./TEST.cpp')) {
+      console.log(chalk.cyan('[File Error]'), 'TEST.cpp: Not Found');
+      process.exit(0);
+    }
+    
     execSync('g++ -o TEST.exe TEST.cpp', { stdio: 'inherit' });
     console.log(chalk.green('[Compiled]'));
   } catch (error) {
@@ -18,7 +23,7 @@ function runTest() {
   try {
     const startTime = process.hrtime.bigint();
 
-    const result = spawnSync('TEST.exe', { input: fs.readFileSync('./TEST.in').toString(), timeout: 10000 });
+    const result = spawnSync('TEST.exe', { input: fs.existsSync('./TEST.in') ? fs.readFileSync('./TEST.in').toString() : '', timeout: 10000 });
     fs.writeFileSync('./TEST.out', result.stdout);
     fs.writeFileSync('./TEST.err', result.stderr);
 
@@ -38,13 +43,17 @@ function runTest() {
       process.exit(0);
     }
   } catch (error) {
-    console.log(chalk.gray('[Runtime Failed]'));
+    console.log(chalk.gray('[Mysterious Error]'));
     process.exit(0);
   }
 }
 
 function compareFiles() {
   try {
+    if (!fs.existsSync('./TEST.ans')) {
+      process.exit(0);
+    }
+
     const content1 = fs.readFileSync('TEST.out').toString().replace(/[ \t]+$/gm, '').replace(/[\r\n]+$/, '');
     const content2 = fs.readFileSync('TEST.ans').toString().replace(/[ \t]+$/gm, '').replace(/[\r\n]+$/, '');
 
@@ -54,7 +63,7 @@ function compareFiles() {
       console.log(chalk.red('[Wrong Answer]'));
     }
   } catch (error) {
-    console.log(chalk.cyan('[File Error]'));
+    console.log(chalk.gray('[Mysterious Error]'));
     process.exit(0);
   }
 }
