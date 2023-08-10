@@ -13,7 +13,7 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 Node.js 安装完成后，即可使用 npm 安装 Atiro。
 
 ```bash
-$ npm install -g Atiro
+$ npm install -g atiro
 ```
 
 ## 用法

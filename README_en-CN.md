@@ -4,7 +4,7 @@
 
 Atiro is a Useless OI Tool that compiles and runs local code and judges a single set of local samples.
 
-## Installatino
+## Installation
 
 This application needs to be installed on your computer before installing Atiro:
 
@@ -13,10 +13,10 @@ This application needs to be installed on your computer before installing Atiro:
 Once Node.js is installed, you can install Atiro using npm.
 
 ```bash
-$ npm install -g Atiro
+$ npm install -g atiro
 ```
 
-## Instructions
+## Usage
 
 Arito is now still in the early stages of development, so there are a number of restrictions on its use:
 
