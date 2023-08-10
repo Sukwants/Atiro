@@ -44,4 +44,4 @@ Uninstall Node.js if you no longer need it.
 
 ## Thanks
 
-![Sukwants](https://avatars.githubusercontent.com/u/95968907?s=64&v=4) ![zhangyt](https://avatars.githubusercontent.com/u/115882588?s=64&v=4) ![赵悦岑](https://avatars.githubusercontent.com/u/96607031?s=64&v=4)
+[![Sukwants](https://avatars.githubusercontent.com/u/95968907?s=64&v=4)](https://github.com/Sukwants) [![zhangyt](https://avatars.githubusercontent.com/u/115882588?s=64&v=4)](https://github.com/zzhangyitian) [![赵悦岑](https://avatars.githubusercontent.com/u/96607031?s=64&v=4)](https://github.com/2745518585)
