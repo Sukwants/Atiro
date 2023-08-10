@@ -11,9 +11,9 @@ program.version('1.0.0');
 program
   .arguments('[file]')
   .action((file) => {
-    compileCpp();
-    runTest();
-    compareFiles();
+    compileCpp(file);
+    runTest(file);
+    compareFiles(file);
   });
 
 program.parse(process.argv);
