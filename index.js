@@ -9,11 +9,11 @@ const compareFiles = require('./lib/judger.js');
 program.version('0.0.4');
 
 program
-  .arguments('[file]')
-  .action((file) => {
+  .arguments('[file] [data]')
+  .action((file, data) => {
     compileCpp(file);
-    runTest(file);
-    compareFiles(file);
+    runTest(file, data);
+    compareFiles(data);
   });
 
 program.parse(process.argv);
