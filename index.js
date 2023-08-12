@@ -11,9 +11,9 @@ program.version('0.0.5');
 program
   .arguments('[file] [data]')
   .action((file, data) => {
-    compileCpp(file);
-    runTest(file, data);
-    compareFiles(data);
+    compileCpp(file || 'TEST');
+    runTest(file || 'TEST', data || file || 'TEST');
+    compareFiles(data || file || 'TEST');
   });
 
 program.parse(process.argv);
