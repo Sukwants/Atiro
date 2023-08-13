@@ -1,19 +1,26 @@
+
 [zh-CN](./README.md) | en-CN
 
 # Atiro
 
-Atiro is a Useless OI Tool that compiles and runs local code and judges a single set of local samples.
+Atiro is a set of Useless OI Tools that compiles and runs local code and judges a single set of local samples.
 
 ## Installation
 
 This application needs to be installed on your computer before installing Atiro:
 
-  - [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/)
 
-Once Node.js is installed, you can install Atiro using npm.
+Once Node.js is installed, you can install Atiro through the following command:
 
 ```bash
 $ npm install -g atiro
+```
+
+You can update Atiro through the following command if it is already installed:
+
+```bash
+$ npm update -g atiro
 ```
 
 ## Usage
@@ -21,26 +28,25 @@ $ npm install -g atiro
 Use Arito through the command line in your working directory:
 
 ```bash
-$ atiro [file] [data]
+$ atiro judge|j [file] [data] [options]
 ```
 
 The meaning of this command is to compile and run `file.cpp`, which reads data from `data.in` and outputs into `data.out`, and compare the output with the standard answer, `data.ans`.
 
 If `file` is not specified, it defaults to `TEST`. If `data` is not specified, it defaults to the same filename as `file`. If `data.ans` is not found, no answer comparison will be performed.
 
+The optional options are as follows:
+
+- `-c, --comp "-O2 -std=c++14"`，specify compilation options。
+
 Arito is now still in the early stages of development, so there are a number of restrictions on its use:
 
 - You need to have g++ on your computer that can be called globally from the command line, in other words, you need to have g++ and add it to the environment variable ``PATH``.
-
 - It can only be run under Windows.
-
 - Only C++ language is supported.
-
-- Specifying compilation options is not supported.
-
 - Specifying a time limit is not supported (default is $5\mathrm{s}$).
-
-- Specifying comparison ways is not supported
+- Specifying comparison ways is not supported.
+- Fixing the configuration is not supported.
 
 ## Uninstallation
 
