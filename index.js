@@ -9,14 +9,14 @@ const compareFiles = require('./lib/judger.js');
 program
   .name('atiro')
   .description('Useless OI Tools')
-  .version('0.0.6');
+  .version('0.0.7');
 
 program
   .command('judge')
   .alias('j')
   .description('judge the answer')
   .arguments('[file] [data]')
-  .option('-c, --comp <comp>')
+  .option('-c, --comp <comp>', 'specify compilation options')
   .action((file, data, options) => {
     compileCpp(file || 'TEST', options.comp);
     runTest(file || 'TEST', data || file || 'TEST');
