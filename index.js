@@ -12,9 +12,13 @@ program
   .version('0.0.6');
 
 program
+  .command('judge')
+  .alias('j')
+  .description('judge the answer')
   .arguments('[file] [data]')
-  .action((file, data) => {
-    compileCpp(file || 'TEST');
+  .option('-c, --comp <comp>')
+  .action((file, data, options) => {
+    compileCpp(file || 'TEST', options.comp);
     runTest(file || 'TEST', data || file || 'TEST');
     compareFiles(data || file || 'TEST');
   });
