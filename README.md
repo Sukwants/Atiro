@@ -1,3 +1,4 @@
+
 zh-CN | [en-CN](./README_en-CN.md)
 
 # Atiro
@@ -10,13 +11,13 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 
 - [Node.js](https://nodejs.org/)
 
-Node.js 安装完成后，即可使用以下命令安装 Atiro：
+Node.js 安装完成后，即可通过以下命令安装 Atiro：
 
 ```bash
 $ npm install -g atiro
 ```
 
-如果已经安装过 Atiro，可以通过以下命令升级：
+如果已经安装过 Atiro，可以通过以下命令更新：
 
 ```bash
 $ npm update -g atiro
