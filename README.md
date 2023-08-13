@@ -10,10 +10,16 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 
 - [Node.js](https://nodejs.org/)
 
-Node.js 安装完成后，即可使用 npm 安装 Atiro。
+Node.js 安装完成后，即可使用以下命令安装 Atiro：
 
 ```bash
 $ npm install -g atiro
+```
+
+如果已经安装过 Atiro，可以通过以下命令升级：
+
+```bash
+$ npm update -g atiro
 ```
 
 ## 用法
@@ -21,26 +27,25 @@ $ npm install -g atiro
 在工作目录下通过命令行使用 Arito：
 
 ```bash
-$ atiro [file] [data]
+$ atiro judge|j [file] [data] [options]
 ```
 
 这句命令的含义是，编译并运行 `file.cpp`，从 `data.in` 读入数据并输出到 `data.out`，与标准答案 `data.ans` 对比。
 
 如未指定 `file`，则默认为 `TEST`。如未指定 `data`，则默认与 `file` 相同。如找不到 `data.ans`，则不进行答案比较。
 
+可选选项如下：
+
+- `-c, --comp "-O2 -std=c++14"`，指定编译选项。
+
 Arito 当前尚处于开发初级阶段，因此使用有诸多限制：
 
 - 计算机上需要有能在命令行全局调用的 g++，换言之，需要有 g++ 且已加入环境变量 ``PATH``。
-
 - 仅能在 Windows 下运行。
-
 - 仅支持 C++ 语言。
-
-- 不支持指定编译选项。
-
 - 不支持指定时间限制（默认为 $5\mathrm{s}$）。
-
 - 不支持自定义比较方式。
+- 不支持默认配置。
 
 ## 卸载
 
