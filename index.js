@@ -6,8 +6,6 @@ const compileCpp = require('./lib/compiler.js');
 const runTest = require('./lib/runner.js');
 const compareFiles = require('./lib/judger.js');
 
-console.log(process.argv);
-
 program
   .name('atiro')
   .description('Useless OI Tools')
