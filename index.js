@@ -50,6 +50,8 @@ program
         config.setConfigValue(type, key, options.set);
       } else if (options.unset) {
         config.unsetConfigValue(type, key);
+      } else {
+        console.log(chalk.yellow('[Warning]'), 'No operation specified.');
       }
     }
   })
