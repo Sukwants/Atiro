@@ -17,10 +17,11 @@ program
   .arguments('[file] [data]')
   .option('-c, --comp <comp>', 'specify compilation options')
   .option('-t, --time <time>', 'specify time limit')
+  .option('-j, --judg <judg>', 'specify judger mode')
   .action((file, data, options) => {
     compileCpp(file || 'TEST', options);
     runTest(file || 'TEST', data || file || 'TEST', options);
-    compareFiles(data || file || 'TEST');
+    compareFiles(data || file || 'TEST', options);
   });
 
 program.parse(process.argv);
