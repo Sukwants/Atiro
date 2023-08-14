@@ -9,7 +9,7 @@ const compareFiles = require('./lib/judger.js');
 program
   .name('atiro')
   .description('Useless OI Tools')
-  .version('0.0.7');
+  .version('0.0.8');
 
 program
   .command('judge')
