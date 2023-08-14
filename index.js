@@ -12,14 +12,14 @@ program
   .version('0.0.8');
 
 program
-  .command('judge')
-  .alias('j')
+  .command('judge').alias('j')
   .description('judge the answer')
   .arguments('[file] [data]')
   .option('-c, --comp <comp>', 'specify compilation options')
+  .option('-t, --time <time>', 'specify time limit')
   .action((file, data, options) => {
-    compileCpp(file || 'TEST', options.comp);
-    runTest(file || 'TEST', data || file || 'TEST');
+    compileCpp(file || 'TEST', options);
+    runTest(file || 'TEST', data || file || 'TEST', options);
     compareFiles(data || file || 'TEST');
   });
 
