@@ -19,6 +19,7 @@ program
   .option('-c, --comp <comp>', 'specify compilation options')
   .option('-t, --time <time>', 'specify time limit')
   .option('-j, --judg <judg>', 'specify judger mode')
+  .option('-a, --allj', 'force judging all the tests')
   .action(judger);
 
 program
