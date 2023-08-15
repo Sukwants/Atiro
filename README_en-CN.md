@@ -46,7 +46,7 @@ The optional options are as follows:
 
 - `-c, --comp "-O2 -std=c++14"`, specify compilation options, the default is to specify no compilation options.
 - `-t, --time 1000`, specify a time limit in ms, default is 5000.
-- `-j, --judg real`, specify the comparison way, `text` for text comparison, `numb` for integer comparison, `real` for real comparison (relative error `1e-9`), default is `text`.
+- `-j, --judg real`, specify the comparison way, `text` for text comparison, `numb` for integer comparison, `real` for real comparison (relative error `1e-9`), or specify the Special Judge file name, default is `text`.
 - `-a, --allj`, force all data to be tested, if this option is not used, testing will stop when the first evaluation result which is not `Accepted` appears.
 
 ### Config
