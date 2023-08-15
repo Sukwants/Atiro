@@ -10,7 +10,7 @@ config.loadConfig();
 program
   .name('atiro')
   .description('Useless OI Tools')
-  .version('0.0.8');
+  .version('0.1.0-beta.1');
 
 program
   .command('judge').alias('j')
