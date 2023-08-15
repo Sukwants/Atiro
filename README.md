@@ -36,7 +36,7 @@ $ atiro judge|j [file] [data] [options]
 
 编译代码，对每组样例数据运行并评判。
 
-`file`，指定代码文件名，不包含 `.cpp` 后缀，默认值为  `TEST`。
+`file`，指定代码文件名，默认值为  `TEST`。
 
 `data`，指定样例数据文件名，这是一个通配符表达式，默认值为  `[file]*`，即以 `file` 值（上个参数）为前缀匹配。
 
@@ -62,9 +62,7 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 可选操作如下：
 
 - `-g, --get`，获取配置项当前值。
-
 - `-s, --set <value>`，设置配置项值为 `value`。
-
 - `-u, --unset`，设置配置项值为空（使用默认值）。
 
 可用配置如下：

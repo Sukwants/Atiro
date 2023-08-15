@@ -36,7 +36,7 @@ $ atiro judge|j [file] [data] [options]
 
 Compile the code, run it and judge the result for each set of sample.
 
-`file`, without the `.cpp` suffix, specifies the code filename, and defaults to `TEST`.
+`file`, specifies the code filename, and defaults to `TEST`.
 
 `data`, which specifies the name of the sample data file, is a wildcard expression with a default value of `[file]*`, that is, it matches with the `file` value (the previous parameter) as a prefix.
 
