@@ -46,7 +46,7 @@ $ atiro judge|j [file] [data] [options]
 
 - `-c, --comp "-O2 -std=c++14"`，指定编译选项，默认不指定任何编译选项。
 - `-t, --time 1000`，指定时间限制，单位为 ms，默认为 5000。
-- `-j, --judg real`，指定比较方式，`text` 文本比较，`numb` 整数比较，`real` 实数比较（相对误差 `1e-9`），默认为 `text`。
+- `-j, --judg real`，指定比较方式，`text` 文本比较，`numb` 整数比较，`real` 实数比较（相对误差 `1e-9`），也可以指定 Special Judge 文件名，默认为 `text`。
 - `-a, --allj`，强制测试所有数据，如果不使用该选项，则会在首次评测结果非 `Accepted` 时停止测试接下来的数据。
 
 ### Config
