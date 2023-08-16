@@ -18,7 +18,8 @@ program
   .arguments('[file] [data]')
   .option('-c, --comp <comp>', 'specify compilation options')
   .option('-t, --time <time>', 'specify time limit')
-  .option('-j, --judg <judg>', 'specify judger mode')
+  .option('-j, --judg <judg>', 'specify judger')
+  .option('-g, --grad <grad>', 'specify grader')
   .option('-a, --allj', 'force judging all the tests')
   .action(judger);
 
