@@ -13,6 +13,15 @@ program
   .version('0.2.0');
 
 program
+  .command('config').alias('c')
+  .description('set the configurations')
+  .arguments('<key>')
+  .option('-g, --get', 'get the config value')
+  .option('-s, --set <value>', 'set the config value')
+  .option('-u, --unset', 'unset the config value')
+  .action(config.operateConfig)
+
+program
   .command('judge').alias('j')
   .description('judge the answer')
   .arguments('[file] [data]')
@@ -22,14 +31,5 @@ program
   .option('-g, --grad <grad>', 'specify grader')
   .option('-a, --allj', 'force judging all the tests')
   .action(judger);
-
-program
-  .command('config').alias('c')
-  .description('set the configurations')
-  .arguments('<key>')
-  .option('-g, --get', 'get the config value')
-  .option('-s, --set <value>', 'set the config value')
-  .option('-u, --unset', 'unset the config value')
-  .action(config.operateConfig)
 
 program.parse(process.argv);
