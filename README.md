@@ -28,6 +28,8 @@ $ npm update -g atiro
 
 ## 用法
 
+**Atiro 未对程序作任何限制，切记确保信任这些程序，切忌在本地评测系统或在线评测系统中使用。**
+
 ### Judge
 
 ```bash
@@ -36,7 +38,7 @@ $ atiro judge|j [file] [data] [options]
 
 编译代码，对每组样例数据运行并评判。
 
-`file`，指定代码文件名，默认值为  `TEST`。
+`file`，指定答案程序文件名，默认值为  `TEST`。
 
 `data`，指定样例数据文件名，这是一个通配符表达式，默认值为  `<file>*`，即以 `<file>` 值（上个参数）为前缀匹配。
 
@@ -53,6 +55,8 @@ $ atiro judge|j [file] [data] [options]
 #### 评测辅助程序
 
 Atiro 支持的评测辅助程序有 `checker`、`interactor`，建议使用 `testlib.h`（[GitHub 项目地址](https://github.com/MikeMirzayanov/testlib)）。Atiro 不予内置 `testlib.h`，所以需要自行下载，也可以选择自行处理参数和文件。
+
+评测辅助程序的编译选项与答案程序的编译选项保持一致，运行时间不做限制。
 
 - `checker`，比较器，支持 `testlib.h`，使用 `--judg` 选项指定。如不使用 `testlib.h`，调用时传入 3 个参数 `<input file>`、`<output file>`、`<answer file>`，分别对应 `.in` 文件、`.out` 文件、`.ans` 文件，程序须自行报告评测结果，同时在评测结果为 `Accepted` 时返回 `0`，非 `Accepted` 时返回非 `0`。
 - `interactor`，交互器，支持 `testlib.h`，使用 `--grad` 选项指定。如不使用 `testlib.h`，调用时传入 2 个参数 `<input file>`、`<output file>`，分别对应 `.in` 文件、`.out` 文件，并将交互器的输入、输出与答案程序的输出、输入连接，程序在交互正确结束 时返回 `0`，交互存在错误时返回非 `0`。
@@ -75,7 +79,7 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 
 可用配置如下：
 
-- `file.name`，默认文件名，即 `judge` 命令的 `file` 参数。
+- `file.name`，默认答案程序，即 `judge` 命令的 `file` 参数。
 - `option.comp`，默认编译选项，即 `judge` 命令的 `comp` 选项。
 - `option.time`，默认时间限制，即 `judge` 命令的 `time` 选项。
 - `option.judg`，默认比较方式 / `checker`，即 `judge` 命令的 `judg` 选项。
