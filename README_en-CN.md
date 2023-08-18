@@ -53,6 +53,7 @@ The available configurations are as follows:
 - `option.time`, the default time limit, i.e. the `time` option of the `judge` command.
 - `option.judge`, the default comparison method or `checker`, i.e. the `judg `option of the `judge` command.
 - `option.grad`, the default `interator`, i.e. the `grad` option of the `judge` command.
+- `option.solv`, the default `solver`, i.e. the `solv` option of the `judge` command.
 - `update.type`, the automatic detection mode for updating versions.
 
 ### Judge
@@ -75,14 +76,18 @@ The optional options are as follows:
 - `-t, --time 1000`, specify a time limit in ms, default is 5000.
 - `-j, --judg real`, specify the comparison way, `text` for text comparison, `numb` for integer comparison, `real` for real comparison (relative error `1e-9`), or specify the Special Judge file name, default is `text`.
 - `-g, --grad grader`, specify the `interactor`'s filename, which means this is an interaction problem.
+- `-s, --solv solver`, specify the `solver`'s filename, which means the standard answer will be calculated by `solver` instead of be prepared in advance.
 - `-a, --allj`, force all data to be tested, if this option is not used, testing will stop when the first evaluation result which is not `Accepted` appears.
 
 #### Judging-assisting Programs
 
-The judging-assisting programs Atiro supports are `checker` and `interactor`. We suggest using `testlib.h` ([GitHub project address](https://github.com/MikeMirzayanov/testlib)), but Atiro does not include `testlib.h`, so you need to download it yourself. Or you can also choose to deal with the parameters and files yourself.
+The judging-assisting programs Atiro supports are `checker`, `interactor` and `solve`. We suggest using `testlib.h `([GitHub project address](https://github.com/MikeMirzayanov/testlib)) except for `solver`, but Atiro does not include  `testlib.h`, so you need to download it yourself. Or you can also choose to deal with the parameters and files yourself.
+
+The judgin-assisting programs' compilation options are the same as the answer program's. `solveer`'s running time limit is 10 times the answer program's and the others don't have a time limit.
 
 * `checker`, supports `testlib.h`, specified using the `--judg` option. If `testlib.h` is not used, pass 3 parameters, `<input file>`、`<output file>` and `<answer file>` when calling, corresponding to the `.in` file, `.out` file and `.ans` file respectively. The program should report the evaluation result, returning `0` when the result is accepted and non-`0` when there exists an error.
 * `interactor`, supports `testlib.h`, specified using the `--grad` option. If `testlib.h` is not used, pass 2 parameters, `<input file>` and `<output file>` when calling, corresponding to the `.in` file and `.ans` file respectively. And you need to  connect the interactor's input and output with the answer program's output and input. The program should return `0` when the interaction is correct and non-`0` when there exists an error.
+* `solver`, specified using the `--solv` option. It reads data from the `.in` file, and outputs into the `.ans` file. The program should return `0` when the interaction is correct, and returning non-`0` will be judged as `Runtime Error`. Normally, please write `solve` in the format of an answer program.
 
 ### Update
 
