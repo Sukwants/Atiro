@@ -35,6 +35,7 @@ async function main() {
     .option('-t, --time <time>', 'specify time limit')
     .option('-j, --judg <judg>', 'specify judger')
     .option('-g, --grad <grad>', 'specify grader')
+    .option('-s, --solv <solv>', 'specify solver')
     .option('-a, --allj', 'force judging all the tests')
     .action(judger);
   
