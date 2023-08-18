@@ -53,7 +53,7 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 - `option.time`，默认时间限制，即 `judge` 命令的 `time` 选项。
 - `option.judg`，默认比较方式 / `checker`，即 `judge` 命令的 `judg` 选项。
 - `option.grad`，默认 `interactor`，即 `judge` 命令的 `grad` 选项。
-- `update.type`，默认 `type`，设置更新版本自动检测模式。
+- `update.type`，更新版本自动检测模式。
 
 ### Judge
 

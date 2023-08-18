@@ -53,6 +53,7 @@ The available configurations are as follows:
 - `option.time`, the default time limit, i.e. the `time` option of the `judge` command.
 - `option.judge`, the default comparison method or `checker`, i.e. the `judg `option of the `judge` command.
 - `option.grad`, the default `interator`, i.e. the `grad` option of the `judge` command.
+- `update.type`, the automatic detection mode for updating versions.
 
 ### Judge
 
@@ -82,6 +83,21 @@ The judging-assisting programs Atiro supports are `checker` and `interactor`. We
 
 * `checker`, supports `testlib.h`, specified using the `--judg` option. If `testlib.h` is not used, pass 3 parameters, `<input file>`、`<output file>` and `<answer file>` when calling, corresponding to the `.in` file, `.out` file and `.ans` file respectively. The program should report the evaluation result, returning `0` when the result is accepted and non-`0` when there exists an error.
 * `interactor`, supports `testlib.h`, specified using the `--grad` option. If `testlib.h` is not used, pass 2 parameters, `<input file>` and `<output file>` when calling, corresponding to the `.in` file and `.ans` file respectively. And you need to  connect the interactor's input and output with the answer program's output and input. The program should return `0` when the interaction is correct and non-`0` when there exists an error.
+
+### Update
+
+```bash
+$ atiro update|u [notice|n | ignore|i]
+```
+
+Detect and update Atiro, or set the automatic detection mode for updating versions.
+
+- `atiro update`, detect and update Atiro.
+- `atiro update type`, check the current automatic detection mode for updating versions, either `notice` or `ignore`.
+- `atiro update notice`, set the automatic detection mode for updating versions to `notice`, which will automatically check for updates every 48 hours. This is the default mode.
+- `atiro update ignore`, set the automatic detection mode for updating versions to `ignore`, which will ignore update notifications.
+
+You can also use the `config` command to check and modify the `update.type` configuration option, which can be set to `notice` or `ignore`.
 
 ## Uninstallation
 
