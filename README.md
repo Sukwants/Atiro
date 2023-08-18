@@ -53,15 +53,7 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 - `option.time`，默认时间限制，即 `judge` 命令的 `time` 选项。
 - `option.judg`，默认比较方式 / `checker`，即 `judge` 命令的 `judg` 选项。
 - `option.grad`，默认 `interactor`，即 `judge` 命令的 `grad` 选项。
-
-### 评测辅助程序
-
-Atiro 支持的评测辅助程序有 `checker`、`interactor`，建议使用 `testlib.h`（[GitHub 项目地址](https://github.com/MikeMirzayanov/testlib)）。Atiro 不予内置 `testlib.h`，所以需要自行下载，也可以选择自行处理参数和文件。
-
-评测辅助程序的编译选项与答案程序的编译选项保持一致，运行时间不做限制。
-
-- `checker`，比较器，支持 `testlib.h`，使用 `--judg` 选项指定。如不使用 `testlib.h`，调用时传入 3 个参数 `<input file>`、`<output file>`、`<answer file>`，分别对应 `.in` 文件、`.out` 文件、`.ans` 文件，程序须自行报告评测结果，同时在评测结果为 `Accepted` 时返回 `0`，非 `Accepted` 时返回非 `0`。
-- `interactor`，交互器，支持 `testlib.h`，使用 `--grad` 选项指定。如不使用 `testlib.h`，调用时传入 2 个参数 `<input file>`、`<output file>`，分别对应 `.in` 文件、`.out` 文件，并将交互器的输入、输出与答案程序的输出、输入连接，程序在交互正确结束 时返回 `0`，交互存在错误时返回非 `0`。
+- `update.type`，默认 `type`，设置更新版本自动检测模式。
 
 ### Judge
 
@@ -84,6 +76,30 @@ $ atiro judge|j [file] [data] [options]
 - `-j, --judg real`，指定比较方式，`text` 文本比较，`numb` 整数比较，`real` 实数比较（相对误差 `1e-9`），也可以指定 `checker` 文件名，默认为 `text`。
 - `-g, --grad grader`，指定 `interactor` 文件名，这意味着本题是一道交互题。
 - `-a, --allj`，强制测试所有数据，如果不使用该选项，则会在首次评测结果非 `Accepted` 时停止测试接下来的数据。
+
+#### 评测辅助程序
+
+Atiro 支持的评测辅助程序有 `checker`、`interactor`，建议使用 `testlib.h`（[GitHub 项目地址](https://github.com/MikeMirzayanov/testlib)）。Atiro 不予内置 `testlib.h`，所以需要自行下载，也可以选择自行处理参数和文件。
+
+评测辅助程序的编译选项与答案程序的编译选项保持一致，运行时间不做限制。
+
+- `checker`，比较器，支持 `testlib.h`，使用 `--judg` 选项指定。如不使用 `testlib.h`，调用时传入 3 个参数 `<input file>`、`<output file>`、`<answer file>`，分别对应 `.in` 文件、`.out` 文件、`.ans` 文件，程序须自行报告评测结果，同时在评测结果为 `Accepted` 时返回 `0`，非 `Accepted` 时返回非 `0`。
+- `interactor`，交互器，支持 `testlib.h`，使用 `--grad` 选项指定。如不使用 `testlib.h`，调用时传入 2 个参数 `<input file>`、`<output file>`，分别对应 `.in` 文件、`.out` 文件，并将交互器的输入、输出与答案程序的输出、输入连接，程序在交互正确结束 时返回 `0`，交互存在错误时返回非 `0`。
+
+### Update
+
+```bash
+$ atiro update|u [notice|n | ignore|i]
+```
+
+检测并更新 Atiro，或设置更新版本自动检测模式。
+
+- `atiro update`，检测并更新 Atiro。
+- `atiro update type`，查询当前更新版本自动检测模式，`notice` 或 `ignore`。
+- `atiro update notice`，设置更新版本自动检测模式为 `notice`，将每隔 48 小时自动检测更新版本，这是默认模式。
+- `atiro update ignore`，设置更新版本自动检测模式为 `ignore`，将忽略更新版本。
+
+也可以通过 `config` 命令查询和修改 `update.type` 配置选项，可以设置为 `notice` 或 `ignore`。
 
 ## 卸载
 
