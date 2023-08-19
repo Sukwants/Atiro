@@ -22,9 +22,7 @@ You can update Atiro through the following command if it is already installed:
 $ npm update -g atiro
 ```
 
-To use Atiro normally, you need to make sure that the C++ compiler g++ has been installed on your computer and can be called globally from the command line, which is indispensable for compilation.
-
-If g++ has been installed on Windows computer, but can't be called globally from the command line, try adding the g++ program body path to the environment variable `PATH`.
+In order to use Atiro properly, you need to have the C++ compiler g++ installed on your computer, and it should be accessible globally through the command line. Alternatively, for Windows computers, you can also choose to specify the path to the g++ compiler executable by using the command `atiro config compiler.path --set <path/to/g++>`. This is essential for the compilation process.
 
 ## Usage
 
@@ -48,6 +46,7 @@ The optional operations are as follows:
 
 The available configurations are as follows:
 
+- `compiler.path`, compiler path, can be ignored if g++ is globally accessible.
 - `file.name`, the default file name, i.e. the `file` parameter of the `judge` command.
 - `option.comp`, the default compilation option, i.e. the `comp` option of the `judge` command.
 - `option.time`, the default time limit, i.e. the `time` option of the `judge` command.
@@ -118,7 +117,7 @@ $ npm uninstall -g Atiro
 
 Uninstall Node.js if you no longer need it.
 
-Unistall g++ and removes it from the environment variable `PATH` if you no longer need it.
+Unistall g++ if you no longer need it.
 
 ## Thanks
 
