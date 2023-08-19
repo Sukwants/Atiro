@@ -16,7 +16,11 @@ async function main() {
   program
     .name(require('./package.json').name)
     .description('Useless OI Tools')
-    .version(require('./package.json').version);
+    .version(require('./package.json').version, '-v, --version');
+
+  program.addHelpText('after', `
+Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
+
   
   program
     .command('config').alias('c')
