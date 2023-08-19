@@ -22,9 +22,7 @@ $ npm install -g atiro
 $ npm update -g atiro
 ```
 
-为了能正常使用 Atiro，计算机上需要确保已经安装 C++ 编译器 g++，并能在命令行全局调用，这是编译所必需的。
-
-如果 Windows 计算机上已经安装了 g++，但无法在命令行全局调用，请尝试将 g++ 程序本体路径加入环境变量 `PATH`。
+为了能正常使用 Atiro，计算机上需要安装 C++ 编译器 g++，并能在命令行全局调用。或者对于 Windows 计算机，你还可以选择通过 `atiro config compiler.path --set <path/to/g++>` 指定 g++ 程序本体路径。这是编译所必需的。
 
 ## 用法
 
@@ -48,6 +46,7 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 
 可用配置如下：
 
+- `compiler.path`，编译器路径，如能全局调用 g++ 可忽略。
 - `file.name`，默认答案程序，即 `judge` 命令的 `file` 参数。
 - `option.comp`，默认编译选项，即 `judge` 命令的 `comp` 选项。
 - `option.time`，默认时间限制，即 `judge` 命令的 `time` 选项。
@@ -117,7 +116,7 @@ $ npm uninstall -g Atiro
 
 如果不再需要 Node.js，卸载 Node.js。
 
-如果不再需要 g++，卸载 g++ 并移除出环境变量 `PATH`。
+如果不再需要 g++，卸载 g++。
 
 ## 致谢
 

@@ -20,7 +20,6 @@ async function main() {
 
   program.addHelpText('after', `
 Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
-
   
   program
     .command('config').alias('c')
