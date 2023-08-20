@@ -6,6 +6,7 @@ const utils = require('./lib/utils.js');
 const judger = require('./lib/judger.js');
 const config = require('./lib/config.js');
 const update = require('./lib/update.js');
+const codeforces = require('./lib/codeforces.js');
 
 async function main() {
 
@@ -59,6 +60,8 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
     .command('ignore').alias('i')
     .description('ignore new versions')
     .action(update.set('ignore'));
+  
+  codeforces(program.command('codeforces').alias('cf').description('OJ tools for Codeforces'));
   
   program.parse(process.argv);
   
