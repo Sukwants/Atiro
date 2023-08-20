@@ -48,12 +48,12 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 
 - `compiler.path`，编译器路径，如能全局调用 g++ 可忽略。
 - `file.name`，默认答案程序，即 `judge` 命令的 `file` 参数。
-- `option.comp`，默认编译选项，即 `judge` 命令的 `comp` 选项。
-- `option.time`，默认时间限制，即 `judge` 命令的 `time` 选项。
-- `option.judg`，默认比较方式 / `checker`，即 `judge` 命令的 `judg` 选项。
-- `option.grad`，默认 `interactor`，即 `judge` 命令的 `grad` 选项。
-- `option.solv`，默认 `solver`，即 `judge` 命令的 `solv` 选项。
-- `option.make`，默认 `generator`，即 `judge` 命令的 `make` 选项。
+- `judge.comp`，默认编译选项，即 `judge` 命令的 `comp` 选项。
+- `judge.time`，默认时间限制，即 `judge` 命令的 `time` 选项。
+- `judge.judg`，默认比较方式 / `checker`，即 `judge` 命令的 `judg` 选项。
+- `judge.grad`，默认 `interactor`，即 `judge` 命令的 `grad` 选项。
+- `judge.solv`，默认 `solver`，即 `judge` 命令的 `solv` 选项。
+- `judge.make`，默认 `generator`，即 `judge` 命令的 `make` 选项。
 - `update.type`，更新版本自动检测模式。
 
 ### Judge
@@ -63,6 +63,8 @@ $ atiro judge|j [file] [data] [options]
 ```
 
 编译代码，对每组样例数据运行并评判。
+
+这里有一个评测命令的简单示例：<https://github.com/Sukwants/Atiro-examples>
 
 `file`，指定答案程序文件名，默认值为  `TEST`。
 
