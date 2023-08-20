@@ -48,12 +48,12 @@ The available configurations are as follows:
 
 - `compiler.path`, compiler path, can be ignored if g++ is globally accessible.
 - `file.name`, the default file name, i.e. the `file` parameter of the `judge` command.
-- `option.comp`, the default compilation option, i.e. the `comp` option of the `judge` command.
-- `option.time`, the default time limit, i.e. the `time` option of the `judge` command.
-- `option.judge`, the default comparison method or `checker`, i.e. the `judg `option of the `judge` command.
-- `option.grad`, the default `interator`, i.e. the `grad` option of the `judge` command.
-- `option.solv`, the default `solver`, i.e. the `solv` option of the `judge` command.
-- `option.make`, the default `generator`, i.e. the `make` option of the `judge` command.
+- `judge.comp`, the default compilation option, i.e. the `comp` option of the `judge` command.
+- `judge.time`, the default time limit, i.e. the `time` option of the `judge` command.
+- `judge.judge`, the default comparison method or `checker`, i.e. the `judg `option of the `judge` command.
+- `judge.grad`, the default `interator`, i.e. the `grad` option of the `judge` command.
+- `judge.solv`, the default `solver`, i.e. the `solv` option of the `judge` command.
+- `judge.make`, the default `generator`, i.e. the `make` option of the `judge` command.
 - `update.type`, the automatic detection mode for updating versions.
 
 ### Judge
@@ -63,6 +63,8 @@ $ atiro judge|j [file] [data] [options]
 ```
 
 Compile the code, run it and judge the result for each set of sample.
+
+There is a simple example for the judging command: https://github.com/Sukwants/Atiro-examples
 
 `file`, specifies the code filename, and defaults to `TEST`.
 
