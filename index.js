@@ -8,6 +8,7 @@ const config = require('./lib/config.js');
 const update = require('./lib/update.js');
 const codeforces = require('./lib/codeforces.js');
 const atcoder = require('./lib/atcoder.js');
+const luogu = require('./lib/luogu.js');
 
 async function main() {
 
@@ -64,6 +65,7 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
   
   codeforces(program.command('codeforces').alias('cf').description('OJ tools for Codeforces'));
   atcoder(program.command('atcoder').alias('at').description('OJ tools for AtCoder'));
+  luogu(program.command('luogu').alias('lg').description('OJ tools for Luogu'));
   
   program.parse(process.argv);
   
