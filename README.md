@@ -86,7 +86,7 @@ $ atiro judge|j [file] [data] [options]
 
 Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`generator`，除 `solver` 外建议使用 `testlib.h`（[GitHub 项目地址](https://github.com/MikeMirzayanov/testlib)）。Atiro 不予内置 `testlib.h`，所以需要自行下载，也可以选择自行处理参数和文件。
 
-评测辅助程序的编译选项与答案程序的编译选项保持一致，除 `solver` 外运行时间不做限制，`solver` 运行时限是答案程序运行时限的 10 倍。
+评测辅助程序的编译选项与答案程序的编译选项保持一致，除 `solver` 外运行时间不做限制，`solver` 运行时限与答案程序的运行时限保持一致。
 
 - `checker`，比较器，支持 `testlib.h`，使用 `--judg` 选项指定。如不使用 `testlib.h`，调用时传入 3 个参数 `<input file>`、`<output file>`、`<answer file>`，分别对应 `.in` 文件、`.out` 文件、`.ans` 文件。程序须自行报告评测结果，同时在评测结果为 `Accepted` 时返回 `0`，非 `Accepted` 时返回非 `0`。
 - `interactor`，交互器，支持 `testlib.h`，使用 `--grad` 选项指定。如不使用 `testlib.h`，调用时传入 2 个参数 `<input file>`、`<output file>`，分别对应 `.in` 文件、`.out` 文件，并将交互器的输入、输出与答案程序的输出、输入连接。程序在交互正确结束 时返回 `0`，交互存在错误时返回非 `0`。
