@@ -1,4 +1,4 @@
-[zh-CN](./README.md) | en-CN
+[zh-CN](./README.md) | en-US | [ru-RU](./README_ru-RU.md) | [ja-JP](./README_ja-JP.md)
 
 # Atiro
 
@@ -119,23 +119,26 @@ The  `<oj>` option can be `codeforces|cf`, `atcoder|at`, `luogu|lg` or `vjudge|v
 **A simple example is as follows:**
 
 ```bash
-$ atiro lg i                                             # log in to Luogu at Atiro
+$ atiro lg i                             # log in to Luogu at Atiro
 ```
 
 ```bash
-$ atiro vj o                                             # log out from Luogu at Atiro
+$ atiro vj o                             # log out from Luogu at Atiro
 ```
 
 ```bash
-$ atiro cf g https://codeforces.com/contest/1/problem/A  # pull samples of Codeforces problem 1A, the filename is TEST
+$ atiro cf g https://codeforces.com/contest/1/problem/A
+# pull samples of Codeforces problem 1A, the filename is TEST
 ```
 
 ```bash
-$ atiro cf g https://codeforces.com/contest/1            # pull samples of all the problems from Codeforces contest 1, the filename is the problem's id
+$ atiro cf g https://codeforces.com/contest/1
+# pull samples of all the problems from Codeforces contest 1, the filename is the problem's id
 ```
 
 ```bash
-$ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a # submit C.cpp to AtCoder problem ARC100A
+$ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a
+# submit C.cpp to AtCoder problem ARC100A
 ```
 
 **Specific explanations are provided below:**

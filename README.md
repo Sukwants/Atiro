@@ -1,4 +1,4 @@
-zh-CN | [en-CN](./README_en-CN.md)
+zh-CN | [en-US](./README_en-US.md) | [ru-RU](./README_ru-RU.md) | [ja-JP](./README_ja-JP.md)
 
 # Atiro
 
@@ -126,23 +126,26 @@ $ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]
 **简单示例如下：**
 
 ```bash
-$ atiro lg i                                             # 在 Atiro 登入 洛谷
+$ atiro lg i                             # 在 Atiro 登入 洛谷
 ```
 
 ```bash
-$ atiro vj o                                             # 在 Atiro 登出 vjudge
+$ atiro vj o                             # 在 Atiro 登出 vjudge
 ```
 
 ```bash
-$ atiro cf g https://codeforces.com/contest/1/problem/A  # 拉取 Codeforces 题目 1A 的样例，文件名为 TEST
+$ atiro cf g https://codeforces.com/contest/1/problem/A
+# 拉取 Codeforces 题目 1A 的样例，文件名为 TEST
 ```
 
 ```bash
-$ atiro cf g https://codeforces.com/contest/1            # 拉取 Codeforces 比赛 1 所有题目的样例，文件名为题目编号
+$ atiro cf g https://codeforces.com/contest/1
+# 拉取 Codeforces 比赛 1 所有题目的样例，文件名为题目编号
 ```
 
 ```bash
-$ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a # 提交 C.cpp 到 AtCoder 题目 ARC100A
+$ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a
+# 提交 C.cpp 到 AtCoder 题目 ARC100A
 ```
 
 **具体解释如下：**
