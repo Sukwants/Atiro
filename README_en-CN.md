@@ -7,7 +7,7 @@ Atiro is a set of Useless OI Tools that compile and run local code and judge loc
 ## Contents
 
 - [Installation](#installation)
-- [Getting Started Quickly](#getting-started-quickly)
+- [Quick Start](#Quick Start)
 - [Usage](#usage)
   - [Judge](#judge)
   - [OJ Tools](#oj-tools)
@@ -36,7 +36,7 @@ $ npm update -g atiro
 
 To use Atiro properly, you need to have the C++ compiler g++ installed on your computer, and it should be accessible globally through the command line. Alternatively, for Windows computers, you can also specify the path to the g++ compiler executable using the command `atiro config compiler.path --set <path/to/g++>`. This is essential for the compilation process.
 
-## Getting Started Quickly
+## Quick Start
 
 If you want to start using Atiro quickly, here are some basic steps:
 
