@@ -68,7 +68,7 @@ $ atiro j A-std A       # 编译 A-std.cpp 并运行、评测，数据为 A*.in 
 - `-m, --make maker`，指定 `generator` 文件名，这意味着接下来将由 `generator` 连续生成输入数据至 `<data>.in` 评测，通常情况下须配合 `solver` 使用，也就是中文语境下俗称的「对拍」。
 - `-a, --allj`，强制测试所有数据，如果不使用该选项，则会在首次评测结果非 `Accepted` 时停止测试接下来的数据。在指定 `generator` 时，这意味着「对拍」将持续进行下去，直到主动结束程序。
 
-这里有关于以上指令的简单示例：<https://github.com/Sukwants/Atiro-examples>
+这里有关于以上指令的简单示例：[https://github.com/Sukwants/Atiro-examples](https://github.com/Sukwants/Atiro-examples)
 
 #### 评测辅助程序
 
@@ -81,7 +81,7 @@ Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`gene
 - `solver`，解决器，使用 `--solv` 选项指定。从 `.in` 文件读入数据，并输出到 `.ans` 文件。程序在交互正确结束时返回 `0`，返回非 `0` 将被判定为 `Runtime Error`。通常情况下，请将 `solver` 写作答案程序的格式。
 - `generator`，生成器，支持 `testlib.h`，使用 `--make` 选项指定。如不使用 `testlib.h`，调用时传入 2 个参数 `<data number>`、`<seed>`，`<data number>` 为测试点编号，`<seed>` 是一个长度为 10 的随机字符串，同时也会在控制台的数据点标题行给出。生成的数据输出到标准输出流。不处理程序返回值，但仍建议返回值为 0。
 
-## OJ Tools
+### OJ Tools
 
 ```bash
 $ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]

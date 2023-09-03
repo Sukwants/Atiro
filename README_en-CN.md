@@ -28,6 +28,105 @@ In order to use Atiro properly, you need to have the C++ compiler g++ installed 
 
 **Atiro does not place any restrictions on the answer or judging-assisting programs, so make sure that you can trust these programs, and do not use them locally or in an online judge system.**
 
+### Judge
+
+```bash
+$ atiro judge|j [file] [data] [options]
+```
+
+Compile the code, run it and judge the result for each set of sample.
+
+**A simple example is as follows:**
+
+```bash
+$ atiro j               # compile TEST.cpp, run and judge, the data is TEST*.in / TEST*.ans
+```
+
+```bash
+$ atiro j A             # compile A.cpp, run and judge, the data is A*.in / A*.ans
+```
+
+```bash
+$ atiro j A-std A       # compile A-std.cpp, run and judge, the data is A*.in / A*.ans
+```
+
+**Specific explanations are provided below:**
+
+`file`, specifies the code filename, and defaults to `TEST`.
+
+`data`, specifies the filename for example data. When `generator` is not specified, this is a wildcard expression with a default value of `<file>*`, meaning it matches files with the prefix of the `<file>` value (from the previous parameter). When `generator` is specified, this option designates an exact filename.
+
+First, Atiro compiles `file.cpp` to get `file` / `file.exe`. Then it looks for all files matching `data.in`, runs the program with them as input data and outputs to `data.out`, and if `data.ans` exists, compares `data.out` to `data.ans`. When `generator` is specified, the `generator` continuously produces input data into `<data>.in`.
+
+The optional options are as follows:
+
+- `-c, --comp "-O2 -std=c++14"`, specify compilation options, the default is to specify no compilation options.
+- `-t, --time 1000`, specify a time limit in ms, default is 5000.
+- `-j, --judg real`, specify the comparison way, `text` for text comparison, `numb` for integer comparison, `real` for real comparison (relative error `1e-9`), or specify the Special Judge file name, default is `text`.
+- `-g, --grad grader`, specify the `interactor`'s filename, which means this is an interaction problem.
+- `-s, --solv solver`, specify the `solver`'s filename, which means the standard answer will be calculated by `solver` instead of be prepared in advance.
+- `-m, --make maker`,  specify the `generator`'s filename. This means that next, the `generator` will continuously produce input data into `<data>.in` to judge. In most cases, this needs to be used in conjunction with the `solver`, commonly referred to as _duipai_ in Chinese context, which means "challenge checking".
+- `-a, --allj`, force all data to be tested, if this option is not used, testing will stop when the first evaluation result which is not `Accepted` appears. When the `generator` is specified, this implies that the _duipai_ process will continue until the program is manually terminated.
+
+Here is a simple example for the judging command: [https://github.com/Sukwants/Atiro-examples](https://github.com/Sukwants/Atiro-examples)
+
+#### Judging-assisting Programs
+
+The judging-assisting programs Atiro supports are `checker`, `interactor`, `solve` and `generator`. We suggest using `testlib.h `([GitHub project address](https://github.com/MikeMirzayanov/testlib)) except for `solver`, but Atiro does not include  `testlib.h`, so you need to download it yourself. Or you can also choose to deal with the parameters and files yourself.
+
+The judging-assisting programs' compilation options are the same as the answer program's. `solver`'s running time limit is the same as the answer program's and the others don't have a time limit.
+
+* `checker`, supports `testlib.h`, specified using the `--judg` option. If `testlib.h` is not used, pass 3 parameters, `<input file>`、`<output file>` and `<answer file>` when calling, corresponding to the `.in` file, `.out` file and `.ans` file respectively. The program should report the evaluation result, returning `0` when the result is accepted and non-`0` when there exists an error.
+* `interactor`, supports `testlib.h`, specified using the `--grad` option. If `testlib.h` is not used, pass 2 parameters, `<input file>` and `<output file>` when calling, corresponding to the `.in` file and `.ans` file respectively. And you need to  connect the interactor's input and output with the answer program's output and input. The program should return `0` when the interaction is correct and non-`0` when there exists an error.
+* `solver`, specified using the `--solv` option. It reads data from the `.in` file, and outputs into the `.ans` file. The program should return `0` when the interaction is correct, and returning non-`0` will be judged as `Runtime Error`. Normally, please write `solve` in the format of an answer program.
+
+- `generator`, supports `testlib.h`, specified using the `--make` option. If `testlib.h` is not used, pass 2 parameters: `<data number>` and `<seed>`. `<data number>` represents the test case number, and `<seed>` is a random string of length 10, which are also provided in the title line of the console for the test case. The generated data is output to the standard output stream. The program's return value is not processed, but it's still recommended to have a return value of 0.
+
+### OJ Tools
+
+```bash
+$ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]
+```
+
+Log in to or log out from OJs, pull problem samples from OJs, or submit answers to OJs at Atiro.
+
+The  `<oj>` option can be `codeforces|cf`, `atcoder|at`, `luogu|lg` or `vjudge|vj`.
+
+**A simple example is as follows:**
+
+```bash
+$ atiro lg i                                             # log in to Luogu at Atiro
+```
+
+```bash
+$ atiro vj o                                             # log out from Luogu at Atiro
+```
+
+```bash
+$ atiro cf g https://codeforces.com/contest/1/problem/A  # pull samples of Codeforces problem 1A, the filename is TEST
+```
+
+```bash
+$ atiro cf g https://codeforces.com/contest/1            # pull samples of all the problems from Codeforces contest 1, the filename is the problem's id
+```
+
+```bash
+$ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a # submit C.cpp to AtCoder problem ARC100A
+```
+
+**Specific explanations are provided below:**
+
+`<oj>`, which specifies the Online Judge platform, currently supports Codeforces (`codeforces|cf`), AtCoder (`atcoder|at`), Luogu (`luogu|lg`), and vjudge (`vjudge|vj`).
+
+The optional commands:
+
+- `login|i`, log in to OJs. Pulling samples of problems with permissions or submitting answers requires logging into OJs at Atiro.
+- `logout|o`, log out from OJs.
+- `get|g <id> [file]`, pull samples of a problem or all the problems of a contest. `<id>` can be the problem or contest url or id. `[file]` can be used to specify the filename when pulling samples of a single problem, or it defaults to `TETS`. Note that pulling samples of all the problems of a contest does not apply to vjudge.
+- `submit|s [file] [id]`, submit the answer, `[file]` is the answer program's filename, which defaults to the global default filename, and `[id]` is the problem's url or id.
+
+The problem or contest ids mentioned above are in the form of `1A`, `1` for Codeforces, `"arc100 a"`, `arc100` for AtCoder, `P1004`, `1`, `"P1004 1"` (contest submissions) for Luogu, and `CodeForces-1A` for vjudge.
+
 ### Config
 
 ```bash
@@ -35,6 +134,22 @@ $ atiro config|c <key> [-g, --get] [-s, --set <value>] [-u, --unset]
 ```
 
 Set the user configuration.
+
+**A simple example is as follows:**
+
+```bash
+$ atiro c file.name --get                    # Get the current configuration value of the default answer program filename
+```
+
+```bash
+$ atiro c judge.comp --set "-O2 -std=c++14"  # set the default compilation option to "-O2 -std=c++14"
+```
+
+```bash
+$ atiro c judge.time --unset                 # clear the default time limit settings
+```
+
+**Specific explanations are provided below:**
 
 `key` specifies the configuration item on which the operation is to be performed.
 
@@ -55,44 +170,6 @@ The available configurations are as follows:
 - `judge.solv`, the default `solver`, i.e. the `solv` option of the `judge` command.
 - `judge.make`, the default `generator`, i.e. the `make` option of the `judge` command.
 - `update.type`, the automatic detection mode for updating versions.
-
-### Judge
-
-```bash
-$ atiro judge|j [file] [data] [options]
-```
-
-Compile the code, run it and judge the result for each set of sample.
-
-There is a simple example for the judging command: https://github.com/Sukwants/Atiro-examples
-
-`file`, specifies the code filename, and defaults to `TEST`.
-
-`data`, specifies the filename for example data. When `generator` is not specified, this is a wildcard expression with a default value of `<file>*`, meaning it matches files with the prefix of the `<file>` value (from the previous parameter). When `generator` is specified, this option designates an exact filename.
-
-First, Atiro compiles `file.cpp` to get `file` / `file.exe`. Then it looks for all files matching `data.in`, runs the program with them as input data and outputs to `data.out`, and if `data.ans` exists, compares `data.out` to `data.ans`. When `generator` is specified, the `generator` continuously produces input data into `<data>.in`.
-
-The optional options are as follows:
-
-- `-c, --comp "-O2 -std=c++14"`, specify compilation options, the default is to specify no compilation options.
-- `-t, --time 1000`, specify a time limit in ms, default is 5000.
-- `-j, --judg real`, specify the comparison way, `text` for text comparison, `numb` for integer comparison, `real` for real comparison (relative error `1e-9`), or specify the Special Judge file name, default is `text`.
-- `-g, --grad grader`, specify the `interactor`'s filename, which means this is an interaction problem.
-- `-s, --solv solver`, specify the `solver`'s filename, which means the standard answer will be calculated by `solver` instead of be prepared in advance.
-- `-m, --make maker`,  specify the `generator`'s filename. This means that next, the `generator` will continuously produce input data into `<data>.in` to judge. In most cases, this needs to be used in conjunction with the `solver`, commonly referred to as _duipai_ in Chinese context, which means "challenge checking".
-- `-a, --allj`, force all data to be tested, if this option is not used, testing will stop when the first evaluation result which is not `Accepted` appears. When the `generator` is specified, this implies that the _duipai_ process will continue until the program is manually terminated.
-
-#### Judging-assisting Programs
-
-The judging-assisting programs Atiro supports are `checker`, `interactor`, `solve` and `generator`. We suggest using `testlib.h `([GitHub project address](https://github.com/MikeMirzayanov/testlib)) except for `solver`, but Atiro does not include  `testlib.h`, so you need to download it yourself. Or you can also choose to deal with the parameters and files yourself.
-
-The judging-assisting programs' compilation options are the same as the answer program's. `solver`'s running time limit is the same as the answer program's and the others don't have a time limit.
-
-* `checker`, supports `testlib.h`, specified using the `--judg` option. If `testlib.h` is not used, pass 3 parameters, `<input file>`、`<output file>` and `<answer file>` when calling, corresponding to the `.in` file, `.out` file and `.ans` file respectively. The program should report the evaluation result, returning `0` when the result is accepted and non-`0` when there exists an error.
-* `interactor`, supports `testlib.h`, specified using the `--grad` option. If `testlib.h` is not used, pass 2 parameters, `<input file>` and `<output file>` when calling, corresponding to the `.in` file and `.ans` file respectively. And you need to  connect the interactor's input and output with the answer program's output and input. The program should return `0` when the interaction is correct and non-`0` when there exists an error.
-* `solver`, specified using the `--solv` option. It reads data from the `.in` file, and outputs into the `.ans` file. The program should return `0` when the interaction is correct, and returning non-`0` will be judged as `Runtime Error`. Normally, please write `solve` in the format of an answer program.
-
-- `generator`, supports `testlib.h`, specified using the `--make` option. If `testlib.h` is not used, pass 2 parameters: `<data number>` and `<seed>`. `<data number>` represents the test case number, and `<seed>` is a random string of length 10, which are also provided in the title line of the console for the test case. The generated data is output to the standard output stream. The program's return value is not processed, but it's still recommended to have a return value of 0.
 
 ### Update
 
