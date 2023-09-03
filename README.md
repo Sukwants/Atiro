@@ -4,13 +4,25 @@ zh-CN | [en-CN](./README_en-CN.md)
 
 Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判本地样例。
 
+## 目录
+
+- [安装](#安装)
+- [快速开始](#快速开始)
+- [用法](#用法)
+  - [Judge](#judge)
+  - [OJ Tools](#oj-tools)
+  - [Config](#config)
+  - [Update](#update)
+- [卸载](#卸载)
+- [致谢](#致谢)
+
 ## 安装
 
-在安装 Atiro 之前，计算机上需要先安装此应用程序：
+在开始使用 Atiro 之前，你需要确保以下软件已经安装在你的计算机上：
 
 - [Node.js](https://nodejs.org/)
 
-Node.js 安装完成后，即可通过以下命令安装 Atiro：
+Node.js 安装完成后，你可以通过以下命令安装 Atiro：
 
 ```bash
 $ npm install -g atiro
@@ -22,7 +34,27 @@ $ npm install -g atiro
 $ npm update -g atiro
 ```
 
-为了能正常使用 Atiro，计算机上需要安装 C++ 编译器 g++，并能在命令行全局调用。或者对于 Windows 计算机，你还可以选择通过 `atiro config compiler.path --set <path/to/g++>` 指定 g++ 程序本体路径。这是编译所必需的。
+为了确保 Atiro 正常运行，你需要在计算机上安装 C++ 编译器 g++，并能在命令行中全局调用。对于 Windows 计算机，你还可以选择通过以下命令指定 g++ 程序的路径：
+
+```bash
+$ atiro config compiler.path --set <path/to/g++>
+```
+
+这是编译所必需的。
+
+## 快速开始
+
+如果你想快速开始使用 Atiro，以下是一些基本步骤：
+
+1. 编写一个答案程序（例如，`A.cpp`）。
+
+2. 使用以下命令进行评测：
+
+```bash
+$ atiro judge A
+```
+
+这将编译 `A.cpp` 并运行、评测，使用默认的样例数据文件命名规则（`A*.in` / `A*.ans`）。
 
 ## 用法
 
