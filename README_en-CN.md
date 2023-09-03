@@ -86,7 +86,7 @@ The optional options are as follows:
 
 The judging-assisting programs Atiro supports are `checker`, `interactor`, `solve` and `generator`. We suggest using `testlib.h `([GitHub project address](https://github.com/MikeMirzayanov/testlib)) except for `solver`, but Atiro does not include  `testlib.h`, so you need to download it yourself. Or you can also choose to deal with the parameters and files yourself.
 
-The judgin-assisting programs' compilation options are the same as the answer program's. `solveer`'s running time limit is 10 times the answer program's and the others don't have a time limit.
+The judging-assisting programs' compilation options are the same as the answer program's. `solver`'s running time limit is the same as the answer program's and the others don't have a time limit.
 
 * `checker`, supports `testlib.h`, specified using the `--judg` option. If `testlib.h` is not used, pass 3 parameters, `<input file>`、`<output file>` and `<answer file>` when calling, corresponding to the `.in` file, `.out` file and `.ans` file respectively. The program should report the evaluation result, returning `0` when the result is accepted and non-`0` when there exists an error.
 * `interactor`, supports `testlib.h`, specified using the `--grad` option. If `testlib.h` is not used, pass 2 parameters, `<input file>` and `<output file>` when calling, corresponding to the `.in` file and `.ans` file respectively. And you need to  connect the interactor's input and output with the answer program's output and input. The program should return `0` when the interaction is correct and non-`0` when there exists an error.
