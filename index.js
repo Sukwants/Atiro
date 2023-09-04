@@ -6,6 +6,11 @@ const utils = require('./lib/utils.js');
 const judger = require('./lib/judger.js');
 const config = require('./lib/config.js');
 const update = require('./lib/update.js');
+const codeforces = require('./lib/codeforces.js');
+const atcoder = require('./lib/atcoder.js');
+const luogu = require('./lib/luogu.js');
+const vjudge = require('./lib/vjudge.js');
+const eastereggs = require('./lib/eastereggs.js');
 
 async function main() {
 
@@ -60,7 +65,22 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
     .description('ignore new versions')
     .action(update.set('ignore'));
   
-  program.parse(process.argv);
+  codeforces(program.command('codeforces').alias('cf').description('OJ tools for Codeforces'));
+  atcoder(program.command('atcoder').alias('at').description('OJ tools for AtCoder'));
+  luogu(program.command('luogu').alias('lg').description('OJ tools for Luogu'));
+  vjudge(program.command('vjudge').alias('vj').description('OJ tools for vjudge'))
+
+  switch (process.argv.slice(2).join(' ').trim()) {
+    case 'or orita':
+      eastereggs.atiro_or_orita();
+      break;
+    case 'art of code':
+      eastereggs.art_of_code();
+      break;
+    default:
+      program.parse(process.argv);
+      break;
+  }
   
   process.on('beforeExit', () => {
     utils.exit();
