@@ -79,7 +79,7 @@ $ atiro j A             # A.cppをコンパイルし、実行および評価し�
 ```
 
 ```bash
-$ atiro j A-std A       # A-std.cppをコンパイルし、実行および評価します。データはA*.in / A*.ansです。
+$ atiro j A-std A*      # A-std.cppをコンパイルし、実行および評価します。データはA*.in / A*.ansです。
 ```
 
 **詳細については以下をご覧ください：**

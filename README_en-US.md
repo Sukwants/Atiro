@@ -72,7 +72,7 @@ $ atiro j A             # compile A.cpp, run and judge, using the data A*.in / A
 ```
 
 ```bash
-$ atiro j A-std A       # compile A-std.cpp, run and judge, using the data A*.in / A*.ans
+$ atiro j A-std A*      # compile A-std.cpp, run and judge, using the data A*.in / A*.ans
 ```
 
 **Specific explanations are provided below:**
