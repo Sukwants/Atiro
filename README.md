@@ -79,7 +79,7 @@ $ atiro j A             # 编译 A.cpp 并运行、评测，数据为 A*.in / A*
 ```
 
 ```bash
-$ atiro j A-std A       # 编译 A-std.cpp 并运行、评测，数据为 A*.in / A*.ans
+$ atiro j A-std A*      # 编译 A-std.cpp 并运行、评测，数据为 A*.in / A*.ans
 ```
 
 **具体解释如下：**
