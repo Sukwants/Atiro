@@ -104,7 +104,7 @@ $ atiro j A-std A*      # 编译 A-std.cpp 并运行、评测，数据为 A*.in 
 
 #### 评测辅助程序
 
-Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`generator`，除 `solver` 外建议使用 `testlib.h`（[GitHub 项目地址](https://github.com/MikeMirzayanov/testlib)）。Atiro 不予内置 `testlib.h`，所以需要自行下载，也可以选择自行处理参数和文件。
+Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`generator`，除 `solver` 外建议使用 `testlib.h`（[GitHub 项目地址](https://github.com/MikeMirzayanov/testlib)）。Atiro 不予内置 `testlib.h`，所以需要自行下载，或使用命令 `atiro download testlib` 下载，也可以选择自行处理参数和文件。
 
 评测辅助程序的编译选项与答案程序的编译选项保持一致，除 `solver` 外运行时间不做限制，`solver` 运行时限与答案程序的运行时限保持一致。
 

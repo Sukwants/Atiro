@@ -11,6 +11,7 @@ const atcoder = require('./lib/atcoder.js');
 const luogu = require('./lib/luogu.js');
 const vjudge = require('./lib/vjudge.js');
 const eastereggs = require('./lib/eastereggs.js');
+const download = require('./lib/download.js');
 
 async function main() {
 
@@ -69,6 +70,12 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
   atcoder(program.command('atcoder').alias('at').description('OJ tools for AtCoder'));
   luogu(program.command('luogu').alias('lg').description('OJ tools for Luogu'));
   vjudge(program.command('vjudge').alias('vj').description('OJ tools for vjudge'))
+
+  program
+    .command('download').alias('d')
+    .description('download some common resources')
+    .arguments('<resource>')
+    .action(download);
 
   switch (process.argv.slice(2).join(' ').trim()) {
     case 'or orita':
