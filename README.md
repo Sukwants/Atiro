@@ -115,6 +115,9 @@ Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`gene
 
 ### OJ Tools
 
+**需要使用 `atiro config browser.path --set /path/to/browser` 指定一个基于 Chromium 的浏览器路径（如 Chrome 或 Edge），可以通过 `chrome://version` 或 `edge://version` 获取可执行文件路径。**
+
+
 ```bash
 $ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]
 ```
@@ -204,6 +207,7 @@ $ atiro c judge.time --unset                 # 清除默认时间限制设置
 - `judge.solv`，默认 `solver`，即 `judge` 命令的 `solv` 选项。
 - `judge.make`，默认 `generator`，即 `judge` 命令的 `make` 选项。
 - `update.type`，更新版本自动检测模式。
+- `browser.path`，浏览器路径，OJ Tools 必需选项。
 
 ### Update
 

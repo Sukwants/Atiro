@@ -1,6 +1,6 @@
 {
   "name": "atiro",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Useless OI Tools",
   "main": "index.js",
   "bin": {
@@ -30,7 +30,7 @@
     "glob": "^10.3.3",
     "moment": "^2.29.4",
     "prompts": "^2.4.2",
-    "puppeteer": "^21.1.0",
+    "puppeteer-core": "^21.3.7",
     "semver": "^7.5.4"
   }
 }
