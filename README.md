@@ -117,9 +117,8 @@ Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`gene
 
 **需要使用 `atiro config browser.path --set /path/to/browser` 指定一个基于 Chromium 的浏览器路径（如 Chrome 或 Edge），可以通过 `chrome://version` 或 `edge://version` 获取可执行文件路径。**
 
-
 ```bash
-$ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]
+$ atiro <oj> login|i [-c,--cookies [file]] | logout|o | get|g <id> [file] | submit|s [file] [id]
 ```
 
 在 Atiro 登入登出 OJ，从 OJ 上拉取题目样例，或提交答案到 OJ。
@@ -129,7 +128,11 @@ $ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]
 **简单示例如下：**
 
 ```bash
-$ atiro lg i                             # 在 Atiro 登入 洛谷
+$ atiro cf i                             # 在 Atiro 登入 Codeforces
+```
+
+```bash
+$ atiro at i -c                          # 使用 Cookies 登入 AtCoder
 ```
 
 ```bash
@@ -157,7 +160,7 @@ $ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a
 
 可选命令：
 
-- `login|i`，登入 OJ，拉取有权限题目的样例或提交答案需要在 Atiro 登入 OJ。
+- `login|i [-c,--cookies [file]]`，登入 OJ，拉取有权限题目的样例或提交答案需要在 Atiro 登入 OJ。也可以通过 Cookies 登录，用法是 `login|i -c,--cookies [file]`，指定 `file` 则从文件读入 Cookies，否则从控制台读入。
 - `logout|o`，登出 OJ。
 - `get|g <id> [file]`，拉取指定题目或指定比赛所有题目的样例到本地，`<id>` 可以是对应题目或比赛的 url 或 id，在拉取单个题目样例时可使用 `[file]` 指定文件名，否则为 `TEST`。注意，拉取比赛所有题目的样例不适用于 vjudge。
 - `submit|s [file] [id]`，提交答案，`[file]` 为答案程序名，默认为全局默认文件名，`[id]` 为题目 url 或 id。
