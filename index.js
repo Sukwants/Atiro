@@ -12,13 +12,14 @@ const luogu = require('./lib/luogu.js');
 const vjudge = require('./lib/vjudge.js');
 const eastereggs = require('./lib/eastereggs.js');
 const download = require('./lib/download.js');
+const { reset } = require('./lib/data.js');
 
 async function main() {
 
   utils.start();
-  
+
   await update.start();
-  
+
   program
     .name(require('./package.json').name)
     .description('Useless OI Tools')
@@ -26,16 +27,7 @@ async function main() {
 
   program.addHelpText('after', `
 Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
-  
-  program
-    .command('config').alias('c')
-    .description('set the configurations')
-    .arguments('<key>')
-    .option('-g, --get', 'get the config value')
-    .option('-s, --set <value>', 'set the config value')
-    .option('-u, --unset', 'unset the config value')
-    .action(config.operate);
-  
+
   program
     .command('judge').alias('j')
     .description('judge the answer')
@@ -48,14 +40,34 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
     .option('-m, --make <make>', 'specify maker')
     .option('-a, --allj', 'force judging all the tests')
     .action(judger);
-  
+
+  codeforces(program.command('codeforces').alias('cf').description('OJ tools for Codeforces'));
+  atcoder(program.command('atcoder').alias('at').description('OJ tools for AtCoder'));
+  luogu(program.command('luogu').alias('lg').description('OJ tools for Luogu'));
+  vjudge(program.command('vjudge').alias('vj').description('OJ tools for vjudge'))
+
+  program
+    .command('download').alias('d')
+    .description('download some common resources')
+    .arguments('<file>')
+    .action(download);
+
+  program
+    .command('config').alias('c')
+    .description('set the configurations')
+    .arguments('<key>')
+    .option('-g, --get', 'get the config value')
+    .option('-s, --set <value>', 'set the config value')
+    .option('-u, --unset', 'unset the config value')
+    .action(config.operate);
+
   const commandUpdate = program
     .command('update').alias('u')
-    .description(`update ${require('./package.json').name}`)
+    .description(`detect new version`)
     .action(update.update);
   commandUpdate
     .command('type').alias('t')
-    .description('query the update type now')
+    .description('query the detection type now')
     .action(update.query);
   commandUpdate
     .command('notice').alias('n')
@@ -66,29 +78,23 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
     .description('ignore new versions')
     .action(update.set('ignore'));
   
-  codeforces(program.command('codeforces').alias('cf').description('OJ tools for Codeforces'));
-  atcoder(program.command('atcoder').alias('at').description('OJ tools for AtCoder'));
-  luogu(program.command('luogu').alias('lg').description('OJ tools for Luogu'));
-  vjudge(program.command('vjudge').alias('vj').description('OJ tools for vjudge'))
-
   program
-    .command('download').alias('d')
-    .description('download some common resources')
-    .arguments('<resource>')
-    .action(download);
+    .command('reset').alias('r')
+    .description('clear all of the data')
+    .action(reset);
 
   switch (process.argv.slice(2).join(' ').trim()) {
     case 'or orita':
       eastereggs.atiro_or_orita();
       break;
-    case 'art of code':
+    case '😉😉😉':
       eastereggs.art_of_code();
       break;
     default:
       program.parse(process.argv);
       break;
   }
-  
+
   process.on('beforeExit', () => {
     utils.exit();
   });
