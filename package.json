@@ -1,6 +1,6 @@
 {
   "name": "atiro",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Useless OI Tools",
   "main": "index.js",
   "bin": {
