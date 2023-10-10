@@ -7,6 +7,8 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 ## 目录
 
 - [安装](#安装)
+  - [可执行文件](#可执行文件)
+  - [npm 包](#npm-包)
 - [快速开始](#快速开始)
 - [用法](#用法)
   - [Judge](#judge)
@@ -14,11 +16,33 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
   - [Config](#config)
   - [Update](#update)
 - [卸载](#卸载)
+  - [可执行文件](#可执行文件-2)
+  - [npm 包](#npm-包-2)
 - [致谢](#致谢)
 
 ## 安装
 
-在开始使用 Atiro 之前，你需要确保以下软件已经安装在你的计算机上：
+我们提供了两种安装方式，分别是可执行文件、npm 包。可执行文件是较为简易的方法，npm 包是较为通用的方法。
+
+### 可执行文件
+
+**适用于 AMD64 架构的 Windows 和 Linux 平台。**x86 或 ARM64 等架构、macOS 等系统均不提供可执行文件。
+
+在 [Realeases](https://github.com/Sukwants/Atiro/releases) 页面下载最新版本的可执行文件，将其放置到计算机的任意位置，建议确保其能够在命令行中全局调用。
+
+为了确保 Atiro 正常运行，你需要在计算机上安装 C++ 编译器 g++，并能在命令行中全局调用。对于 Windows 计算机，你还可以选择通过以下命令指定 g++ 程序的路径：
+
+```bash
+$ atiro config compiler.path --set <path/to/g++>
+```
+
+这是编译所必需的。
+
+### npm 包
+
+**适用于支持 Node.js 的所有平台。**
+
+在开始使用 npm 安装 Atiro 之前，你需要确保以下软件已经安装在你的计算机上：
 
 - [Node.js](https://nodejs.org/)
 
@@ -218,22 +242,38 @@ $ atiro c judge.time --unset                 # 清除默认时间限制设置
 $ atiro update|u [type|t | notice|n | ignore|i]
 ```
 
-检测并更新 Atiro，或设置更新版本自动检测模式。
+检测新版本，或设置自动检测。
 
-- `atiro update`，检测并更新 Atiro。
-- `atiro update type`，查询当前更新版本自动检测模式，`notice` 或 `ignore`。
-- `atiro update notice`，设置更新版本自动检测模式为 `notice`，将每隔 48 小时自动检测更新版本，如检测失败将在 12 小时后重新检测。这是默认模式。
-- `atiro update ignore`，设置更新版本自动检测模式为 `ignore`，将忽略更新版本。
+- `atiro update`，检测新版本。
+- `atiro update type`，查询当前自动检测模式，`notice` 或 `ignore`，默认为 `ignore`。
+- `atiro update notice`，设置自动检测模式为 `notice`，将每隔 48 小时自动检测更新版本，如检测失败将在 12 小时后重新检测。
+- `atiro update ignore`，设置自动检测模式为 `ignore`，将忽略新版本。
 
 也可以通过 `config` 命令查询和修改 `update.type` 配置选项，可以设置为 `notice` 或 `ignore`。
 
-## 卸载
-
-与安装时相同，使用 npm 卸载 Atiro。
+## Reset
 
 ```bash
-$ npm uninstall -g Atiro
+$ atiro reset
 ```
+
+清除 Atiro 所有数据，包括用户配置和运行数据。
+
+## 卸载
+
+### 可执行文件
+
+执行 `atiro reset` 清除数据。
+
+直接删除可执行文件。
+
+如果不再需要 g++，卸载 g++。
+
+### npm 包
+
+执行 `atiro reset` 清除数据。
+
+执行 `npm uninstall -g atiro` 卸载 Atiro。
 
 如果不再需要 Node.js，卸载 Node.js。
 
