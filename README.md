@@ -1,4 +1,4 @@
-zh-CN | [en-US](./README_en-US.md) | [ru-RU](./README_ru-RU.md) | [ja-JP](./README_ja-JP.md)
+zh-CN | [en-US](./README_en-US.md)
 
 # Atiro
 
@@ -7,17 +7,18 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 ## 目录
 
 - [安装](#安装)
-  - [可执行文件](#可执行文件)
-  - [npm 包](#npm-包)
+  - [可执行文件](#可执行文件-1)
+  - [NPM 包](#npm-包-1)
 - [快速开始](#快速开始)
 - [用法](#用法)
   - [Judge](#judge)
   - [OJ Tools](#oj-tools)
   - [Config](#config)
   - [Update](#update)
+  - [Reset](#reset)
 - [卸载](#卸载)
   - [可执行文件](#可执行文件-2)
-  - [npm 包](#npm-包-2)
+  - [NPM 包](#npm-包-2)
 - [致谢](#致谢)
 
 ## 安装
@@ -38,7 +39,7 @@ $ atiro config compiler.path --set <path/to/g++>
 
 这是编译所必需的。
 
-### npm 包
+### NPM 包
 
 **适用于支持 Node.js 的所有平台。**
 
@@ -142,7 +143,7 @@ Atiro 支持的评测辅助程序有 `checker`、`interactor`、`solver`、`gene
 **需要使用 `atiro config browser.path --set /path/to/browser` 指定一个基于 Chromium 的浏览器路径（如 Chrome 或 Edge），可以通过 `chrome://version` 或 `edge://version` 获取可执行文件路径。**
 
 ```bash
-$ atiro <oj> login|i [-c,--cookies [file]] | logout|o | get|g <id> [file] | submit|s [file] [id]
+$ atiro <oj> login|i [-c, --cookies [file]] | logout|o | get|g <id> [file] | submit|s [file] [id]
 ```
 
 在 Atiro 登入登出 OJ，从 OJ 上拉取题目样例，或提交答案到 OJ。
@@ -184,7 +185,7 @@ $ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a
 
 可选命令：
 
-- `login|i [-c,--cookies [file]]`，登入 OJ，拉取有权限题目的样例或提交答案需要在 Atiro 登入 OJ。也可以通过 Cookies 登录，用法是 `login|i -c,--cookies [file]`，指定 `file` 则从文件读入 Cookies，否则从控制台读入。
+- `login|i [-c, --cookies [file]]`，登入 OJ，拉取有权限题目的样例或提交答案需要在 Atiro 登入 OJ。也可以通过 Cookies 登录，用法是 `login|i -c, --cookies [file]`，指定 `file` 则从文件读入 Cookies，否则从控制台读入。
 - `logout|o`，登出 OJ。
 - `get|g <id> [file]`，拉取指定题目或指定比赛所有题目的样例到本地，`<id>` 可以是对应题目或比赛的 url 或 id，在拉取单个题目样例时可使用 `[file]` 指定文件名，否则为 `TEST`。注意，拉取比赛所有题目的样例不适用于 vjudge。
 - `submit|s [file] [id]`，提交答案，`[file]` 为答案程序名，默认为全局默认文件名，`[id]` 为题目 url 或 id。
@@ -269,7 +270,7 @@ $ atiro reset
 
 如果不再需要 g++，卸载 g++。
 
-### npm 包
+### NPM 包
 
 执行 `atiro reset` 清除数据。
 

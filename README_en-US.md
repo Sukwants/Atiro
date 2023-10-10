@@ -1,4 +1,4 @@
-[zh-CN](./README.md) | en-US | [ru-RU](./README_ru-RU.md) | [ja-JP](./README_ja-JP.md)
+[zh-CN](./README.md) | en-US
 
 # Atiro
 
@@ -7,18 +7,43 @@ Atiro is a set of Useless OI Tools that compile and run local code and judge loc
 ## Contents
 
 - [Installation](#installation)
+  - [Executable File](#executable-file-1)
+  - [NPM Package](#npm-package-1)
 - [Quick Start](#Quick Start)
 - [Usage](#usage)
   - [Judge](#judge)
   - [OJ Tools](#oj-tools)
   - [Config](#config)
   - [Update](#update)
+  - [Reset](#reset)
 - [Uninstallation](#uninstallation)
+  - [Executable File](#executable-file-2)
+  - [NPM Package](#npm-package-2)
 - [Thanks](#thanks)
 
 ## Installation
 
-This application needs to be installed on your computer before installing Atiro:
+We offer two installation methods, executable file and npm package. Executable file is a simpler method, while npm package is a more versatile option.
+
+### Executable File
+
+**Applicable to AMD64 architecture on Windows and Linux platforms.** Executable file is not provided for other architectures such as x86 or ARM64, and other systems such as macOS.
+
+Download the latest version of the executable file from the [Releases](https://github.com/Sukwants/Atiro/releases) page and place it anywhere on your computer. It is recommended to ensure that it can be globally accessed in the command line.
+
+To ensure that Atiro runs smoothly, you need to install the C++ compiler g++ on your computer and make sure it can be globally accessed from the command line. For Windows computers, you can also specify the path to the g++ program using the following command:
+
+```bash
+$ atiro config compiler.path --set <path/to/g++>
+```
+
+This is necessary for the compilation process.
+
+### NPM Package
+
+**Applicable to all platforms that support Node.js.**
+
+Before you begin installing Atiro using npm, you need to ensure that the following software is already installed on your computer:
 
 - [Node.js](https://nodejs.org/)
 
@@ -97,7 +122,7 @@ Here is a simple example for the judging command: [https://github.com/Sukwants/A
 
 #### Judging-assisting Programs
 
-The judging-assisting programs Atiro supports are `checker`, `interactor`, `solver`, and `generator`. We suggest using `testlib.h` ([GitHub project address](https://github.com/MikeMirzayanov/testlib)) except for `solver`, but Atiro does not include `testlib.h`, so you need to download it yourself. Or you can also choose to deal with the parameters and files yourself.
+The judging-assisting programs Atiro supports are `checker`, `interactor`, `solver`, and `generator`. Except for the `solver`, it is recommended to use `testlib.h` ([GitHub project link](https://github.com/MikeMirzayanov/testlib)). Atiro does not include `testlib.h` by default, so you will need to download it yourself or use the `atiro download testlib` command to obtain it. You can also choose to deal with the parameters and files yourself.
 
 The judging-assisting programs' compilation options are the same as the answer program's. `solver`'s running time limit is the same as the answer program's, and the others don't have a time limit.
 
@@ -108,8 +133,10 @@ The judging-assisting programs' compilation options are the same as the answer p
 
 ### OJ Tools
 
+**You need to use `atiro config browser.path --set /path/to/browser` to specify the path to a Chromium-based browser (such as Chrome or Edge). You can obtain the executable file path through `chrome://version` or `edge://version`.**
+
 ```bash
-$ atiro <oj> login|i | logout|o | get|g <id> [file] | submit|s [file] [id]
+$ atiro <oj> login|i [-c, --cookies [file]] | logout|o | get|g <id> [file] | submit|s [file] [id]
 ```
 
 Log in to or log out from OJs, pull problem samples from OJs, or submit answers to OJs at Atiro.
@@ -119,7 +146,11 @@ The  `<oj>` option can be `codeforces|cf`, `atcoder|at`, `luogu|lg` or `vjudge|v
 **A simple example is as follows:**
 
 ```bash
-$ atiro lg i                             # log in to Luogu at Atiro
+$ atiro cf i                             # log in to Codeforces at Atiro
+```
+
+```bash
+$ atiro at i -c                          # log in to AtCoder with Cookies
 ```
 
 ```bash
@@ -147,7 +178,7 @@ $ atiro at s C https://atcoder.jp/contests/arc100/tasks/arc100_a
 
 The optional commands:
 
-- `login|i`, log in to OJs. Pulling samples of problems with permissions or submitting answers requires logging into OJs at Atiro.
+- `login|i [-c, --cookies [file]]`, log in to OJs. Pulling samples of problems with permissions or submitting answers requires logging into OJs at Atiro. You can also log in with cookies by using the `-c, --cookies [file]` option. If you specify `file`, it will read cookies from the file, or it will read them from the console.
 - `logout|o`, log out from OJs.
 - `get|g <id> [file]`, pull samples of a problem or all the problems of a contest. `<id>` can be the problem or contest url or id. `[file]` can be used to specify the filename when pulling samples of a single problem, or it defaults to `TETS`. Note that pulling samples of all the problems of a contest does not apply to vjudge.
 - `submit|s [file] [id]`, submit the answer, `[file]` is the answer program's filename, which defaults to the global default filename, and `[id]` is the problem's url or id.
@@ -197,6 +228,7 @@ The available configurations are as follows:
 - `judge.solv`, the default `solver`, i.e., the `solv` option of the `judge` command.
 - `judge.make`, the default `generator`, i.e., the `make` option of the `judge` command.
 - `update.type`, the automatic detection mode for updating versions.
+- `browser.path`, the path to the browser, which is a required option for OJ Tools.
 
 ### Update
 
@@ -204,26 +236,38 @@ The available configurations are as follows:
 $ atiro update|u [notice|n | ignore|i]
 ```
 
-Detect and update Atiro, or set the automatic detection mode for updating versions.
+Check for a new version or set up automatic checks, you can use the following commands:
 
-- `atiro update`, detect and update Atiro.
-- `atiro update type`, check the current automatic detection mode for updating versions, either `notice` or `ignore`.
-- `atiro update notice`, set the automatic detection mode for updating versions to `notice`, which will automatically check for updates every 48 hours. This is the default mode.
-- `atiro update ignore`, set the automatic detection mode for updating versions to `ignore`, which will ignore update notifications.
+- `atiro update`, check for a new version.
+- `atiro update type`, query the current automatic check mode, which can be either `notice` or `ignore`. The default is `ignore`.
+- `atiro update notice`, set the automatic check mode to `notice`, which will automatically check for updates every 48 hours. If the check fails, it will retry after 12 hours.
+- `atiro update ignore`, set the automatic check mode to `ignore`, which will ignore new versions.
 
-You can also use the `config` command to check and modify the `update.type` configuration option, which can be set to `notice` or `ignore`.
+## Reset
+
+```bash
+$ atiro reset
+```
+
+Clear all the data of Atiro, including user configurations and runtime data.
 
 ## Uninstallation
 
-Uninstall Atiro using npm as you did when installing it.
+### Executable File
+Execute the command `atiro reset` to clear the data of Atiro.
 
-```bash
-$ npm uninstall -g Atiro
-```
+Simply delete the executable file.
 
-Uninstall Node.js if you no longer need it.
+If you no longer need g++, you can uninstall it.
 
-Uninstall g++ if you no longer need it.
+### NPM Package
+Execute the command `atiro reset` to clear the data of Atiro.
+
+Execute the command `npm uninstall -g atiro` to uninstall Atiro.
+
+If you no longer need Node.js, you can uninstall it.
+
+If you no longer need g++, you can uninstall it.
 
 ## Thanks
 
