@@ -32,6 +32,7 @@
     "moment": "^2.29.4",
     "prompts": "^2.4.2",
     "puppeteer-core": "^21.3.7",
+    "readline-sync": "^1.4.10",
     "semver": "^7.5.4"
   },
   "devDependencies": {
