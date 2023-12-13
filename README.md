@@ -27,7 +27,7 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 
 ### 可执行文件
 
-**适用于 AMD64 架构的 Windows 和 Linux 平台。**x86 或 ARM64 等架构、macOS 等系统均不提供可执行文件。
+**适用于 AMD64 架构的 Windows、Linux 和 macOS 平台。** x86 或 ARM64 等其他架构不提供可执行文件。
 
 在 [Realeases](https://github.com/Sukwants/Atiro/releases) 页面下载最新版本的可执行文件，将其放置到计算机的任意位置，建议确保其能够在命令行中全局调用。
 
