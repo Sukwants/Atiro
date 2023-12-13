@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+process.env.ATIRO_PACK = true;
+
 const { program } = require('commander');
 
 const utils = require('./lib/utils.js');

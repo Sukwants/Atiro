@@ -27,7 +27,7 @@ We offer two installation methods, executable file and npm package. Executable f
 
 ### Executable File
 
-**Applicable to AMD64 architecture on Windows and Linux platforms.** Executable file is not provided for other architectures such as x86 or ARM64, and other systems such as macOS.
+**Applicable to AMD64 architecture on Windows, Linux and macOS platforms.** Executable file is not provided for other architectures such as x86 or ARM64.
 
 Download the latest version of the executable file from the [Releases](https://github.com/Sukwants/Atiro/releases) page and place it anywhere on your computer. It is recommended to ensure that it can be globally accessed in the command line.
 

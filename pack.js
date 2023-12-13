@@ -35,6 +35,8 @@ async function main() {
       });
     } else if (process.platform == 'linux') {
       execSync(`npx pkg ./dist/index.js -o ./dist/atiro-linux -t node18-linux-x64 --public`, { stdio: 'inherit' });
+    } else if (process.platform == 'darwin') {
+      execSync(`npx pkg ./dist/index.js -o ./dist/atiro-macos -t node18-macos-x64 --public`, { stdio: 'inherit' });
     }
   } catch (error) {
     console.error(error);
