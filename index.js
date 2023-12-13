@@ -41,6 +41,7 @@ Turn to https://github.com/Sukwants/Atiro#readme to get more information!`);
     .option('-s, --solv <solv>', 'specify solver')
     .option('-m, --make <make>', 'specify maker')
     .option('-a, --allj', 'force judging all the tests')
+    .option('-r, --reco', 'force recompiling all the source files')
     .action(judger);
 
   codeforces(program.command('codeforces').alias('cf').description('OJ tools for Codeforces'));
