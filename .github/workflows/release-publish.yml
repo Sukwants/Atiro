@@ -1,0 +1,57 @@
+name: Publish Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run pack
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: '.\dist\atiro-windows.exe'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run pack
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: './dist/atiro-linux'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run pack
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: './dist/atiro-macos'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true

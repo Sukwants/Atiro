@@ -5,7 +5,7 @@ const exe = require('@angablue/exe');
 async function main() {
   const code = fs.readFileSync('./index.js').toString();
 
-  fs.writeFileSync('./index.js', `#!/usr/bin/env node\n\nprocess.env.ATIRO_PACK = true;\n${code.replace(/^#!\/usr\/bin\/env node\n/, '')}`);
+  fs.writeFileSync('./index.js', `#!/usr/bin/env node\n\nprocess.env.ATIRO_PACK = true;\n${code.replace(/^#!\/usr\/bin\/env node\r?\n/, '')}`);
 
   try {
     execSync('npx ncc build ./index.js -o ./dist/');
