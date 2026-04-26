@@ -18,7 +18,13 @@ async function main() {
   fs.writeFileSync('./index.js', code);
 
   try {
-    const arch = process.arch == 'arm64';
+    const arch = {
+      'x64': 0,
+      'arm64': 1
+    }[process.arch];
+    if (arch === undefined) {
+      throw new Error(`Unsupported architecture: ${process.arch}`);
+    }
     if (process.platform == 'win32') {
       await exe({
         entry: './dist/index.js',
@@ -38,6 +44,8 @@ async function main() {
       execSync(`npx pkg ./dist/index.js -o ./dist/atiro-linux-${['amd64', 'arm64'][arch]} -t node18-linux-${['x64', 'arm64'][arch]} --public`, { stdio: 'inherit' });
     } else if (process.platform == 'darwin') {
       execSync(`npx pkg ./dist/index.js -o ./dist/atiro-macos-${['intel', 'arm64'][arch]} -t node18-macos-${['x64', 'arm64'][arch]} --public`, { stdio: 'inherit' });
+    } else {
+      throw new Error(`Unsupported platform: ${process.platform}`);
     }
   } catch (error) {
     console.error(error);
