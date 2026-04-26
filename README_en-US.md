@@ -7,9 +7,9 @@ Atiro is a set of Useless OI Tools that compile and run local code and judge loc
 ## Contents
 
 - [Installation](#installation)
-  - [Executable File](#executable-file-1)
-  - [NPM Package](#npm-package-1)
-- [Quick Start](#Quick Start)
+  - [Executable File](#executable-file)
+  - [NPM Package](#npm-package)
+- [Quick Start](#quick-start)
 - [Usage](#usage)
   - [Judge](#judge)
   - [OJ Tools](#oj-tools)
@@ -17,17 +17,19 @@ Atiro is a set of Useless OI Tools that compile and run local code and judge loc
   - [Update](#update)
   - [Reset](#reset)
 - [Uninstallation](#uninstallation)
-  - [Executable File](#executable-file-2)
-  - [NPM Package](#npm-package-2)
+  - [Executable File](#executable-file-1)
+  - [NPM Package](#npm-package-1)
 - [Thanks](#thanks)
 
 ## Installation
 
 We offer two installation methods, executable file and npm package. Executable file is a simpler method, while npm package is a more versatile option.
 
+**It is recommended to read [Uninstallation](#uninstallation) before you uninstall it, or there may be some remaining files.**
+
 ### Executable File
 
-**Applicable to AMD64 architecture on Windows, Linux and macOS platforms.** Executable file is not provided for other architectures such as x86 or ARM64.
+**Applicable to Windows, Linux and macOS platforms based on AMD64 and ARM64 architectures.**
 
 Download the latest version of the executable file from the [Releases](https://github.com/Sukwants/Atiro/releases) page and place it anywhere on your computer. It is recommended to ensure that it can be globally accessed in the command line.
 

@@ -7,8 +7,8 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 ## 目录
 
 - [安装](#安装)
-  - [可执行文件](#可执行文件-1)
-  - [NPM 包](#npm-包-1)
+  - [可执行文件](#可执行文件)
+  - [NPM 包](#npm-包)
 - [快速开始](#快速开始)
 - [用法](#用法)
   - [Judge](#judge)
@@ -17,19 +17,21 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
   - [Update](#update)
   - [Reset](#reset)
 - [卸载](#卸载)
-  - [可执行文件](#可执行文件-2)
-  - [NPM 包](#npm-包-2)
+  - [可执行文件](#可执行文件-1)
+  - [NPM 包](#npm-包-1)
 - [致谢](#致谢)
 
 ## 安装
 
 我们提供了两种安装方式，分别是可执行文件、npm 包。可执行文件是较为简易的方法，npm 包是较为通用的方法。
 
+**卸载建议参考 [卸载](#卸载) 一节，否则可能产生不必要的遗留文件。**
+
 ### 可执行文件
 
-**适用于 AMD64 架构的 Windows、Linux 和 macOS 平台。** x86 或 ARM64 等其他架构不提供可执行文件。
+**适用于基于 AMD64 和 ARM64 架构的 Windows、Linux 和 macOS 平台。**
 
-在 [Realeases](https://github.com/Sukwants/Atiro/releases) 页面下载最新版本的可执行文件，将其放置到计算机的任意位置，建议确保其能够在命令行中全局调用。
+在 [Releases](https://github.com/Sukwants/Atiro/releases) 页面下载最新版本的可执行文件，将其放置到计算机的任意位置，建议确保其能够在命令行中全局调用。
 
 为了确保 Atiro 正常运行，你需要在计算机上安装 C++ 编译器 g++，并能在命令行中全局调用。对于 Windows 计算机，你还可以选择通过以下命令指定 g++ 程序的路径：
 
