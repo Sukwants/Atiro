@@ -18,13 +18,14 @@ async function main() {
   fs.writeFileSync('./index.js', code);
 
   try {
+    const arch = process.arch == 'arm64';
     if (process.platform == 'win32') {
       await exe({
         entry: './dist/index.js',
         pkg: ["--public"],
-        out: './dist/atiro-windows.exe',
+        out: `./dist/atiro-windows-${['x64', 'arm64'][arch]}.exe`,
         version: require('./package.json').version,
-        target: 'node18-win-x64',
+        target: `node18-win-${['x64', 'arm64'][arch]}`,
         icon: './assets/icon.ico',
         properties: {
           FileDescription: 'Atiro - Useless OI Tools',
@@ -34,9 +35,9 @@ async function main() {
         }
       });
     } else if (process.platform == 'linux') {
-      execSync(`npx pkg ./dist/index.js -o ./dist/atiro-linux -t node18-linux-x64 --public`, { stdio: 'inherit' });
+      execSync(`npx pkg ./dist/index.js -o ./dist/atiro-linux-${['amd64', 'arm64'][arch]} -t node18-linux-${['x64', 'arm64'][arch]} --public`, { stdio: 'inherit' });
     } else if (process.platform == 'darwin') {
-      execSync(`npx pkg ./dist/index.js -o ./dist/atiro-macos -t node18-macos-x64 --public`, { stdio: 'inherit' });
+      execSync(`npx pkg ./dist/index.js -o ./dist/atiro-macos-${['intel', 'arm64'][arch]} -t node18-macos-${['x64', 'arm64'][arch]} --public`, { stdio: 'inherit' });
     }
   } catch (error) {
     console.error(error);

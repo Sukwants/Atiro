@@ -5,7 +5,7 @@ on:
     types: [published]
 
 jobs:
-  build-windows:
+  build-windows-x64:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,11 +18,28 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: '.\dist\atiro-windows.exe'
+          artifacts: '.\dist\atiro-windows-x64.exe'
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
 
-  build-linux:
+  build-windows-arm64:
+    runs-on: windows-11-arm
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run pack
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: '.\dist\atiro-windows-arm64.exe'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+
+  build-linux-amd64:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -35,11 +52,45 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: './dist/atiro-linux'
+          artifacts: './dist/atiro-linux-amd64'
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
 
-  build-macos:
+  build-linux-arm64:
+    runs-on: ubuntu-22.04-arm
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run pack
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: './dist/atiro-linux-arm64'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+
+  build-macos-intel:
+    runs-on: macos-26-intel
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run pack
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: './dist/atiro-macos-intel'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+
+  build-macos-arm64:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -52,6 +103,6 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: './dist/atiro-macos'
+          artifacts: './dist/atiro-macos-arm64'
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
