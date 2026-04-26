@@ -31,7 +31,7 @@ Atiro 是一款 Useless OI Tools。Atiro 编译并运行本地代码，并评判
 
 **适用于基于 AMD64 和 ARM64 架构的 Windows、Linux 和 macOS 平台。**
 
-在 [Realeases](https://github.com/Sukwants/Atiro/releases) 页面下载最新版本的可执行文件，将其放置到计算机的任意位置，建议确保其能够在命令行中全局调用。
+在 [Releases](https://github.com/Sukwants/Atiro/releases) 页面下载最新版本的可执行文件，将其放置到计算机的任意位置，建议确保其能够在命令行中全局调用。
 
 为了确保 Atiro 正常运行，你需要在计算机上安装 C++ 编译器 g++，并能在命令行中全局调用。对于 Windows 计算机，你还可以选择通过以下命令指定 g++ 程序的路径：
 

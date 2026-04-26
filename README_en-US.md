@@ -9,7 +9,7 @@ Atiro is a set of Useless OI Tools that compile and run local code and judge loc
 - [Installation](#installation)
   - [Executable File](#executable-file)
   - [NPM Package](#npm-package)
-- [Quick Start](#Quick Start)
+- [Quick Start](#quick-start)
 - [Usage](#usage)
   - [Judge](#judge)
   - [OJ Tools](#oj-tools)
